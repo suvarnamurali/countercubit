@@ -1,0 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+part 'counter_state.dart';
+
+class CounterCubit extends Cubit<CounterState> {
+  CounterCubit() : super(CounterState(counterValue: 0,wasIncremented: false,wasDecremented: false,themeChanged: false));
+  void increment() => emit(CounterState(counterValue: state.counterValue + 1,wasIncremented: true,wasDecremented: false,themeChanged: true));
+  void decrement() => emit(CounterState(counterValue: state.counterValue - 1,wasIncremented: false,wasDecremented: true,themeChanged: false));
+}
